@@ -10,11 +10,12 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface PatientDao extends CrudRepository<Patient,Integer> {
-    @Query(value = "SELECT `id`, `address`, `contact`, `dname`, `doa`, `image`, `name`, `pid` FROM `patients` WHERE `pid`= :pid",nativeQuery = true)
+    @Query(value = "SELECT `id`, `address`, `contact`, `dname`, `doa`, `image`, `name`, `pid` FROM `patients` WHERE `pid` LIKE %:pid%", nativeQuery = true)
     List<Patient> SearchPatient(@Param("pid") Integer pid);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM `patients` WHERE `id`= :id",nativeQuery = true)
+    @Query(value = "DELETE FROM `patients` WHERE `id`= :id", nativeQuery = true)
     void DeletePatient(@Param("id") Integer id);
+}
 

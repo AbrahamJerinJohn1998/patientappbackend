@@ -1,15 +1,13 @@
 package com.nest.patientappbackend.controller;
 
-public class PatientController {
-    import com.example.PatientApp_Backend.dao.PatientDao;
-import com.example.PatientApp_Backend.model.Patient;
+import com.nest.patientappbackend.dao.PatientDao;
+import com.nest.patientappbackend.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
     @RestController
     public class PatientController {
         @Autowired
